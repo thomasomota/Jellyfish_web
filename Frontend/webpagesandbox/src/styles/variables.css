@@ -1,0 +1,22 @@
+:root {
+    /* SIZES */
+    --max-width: 900px;
+    --default-padding: 2rem;
+    --navbar-height: 80px;
+    --feed-width: 600px;
+  
+    /* TEXT */
+    --grey-font: rgb(99, 114, 130);
+    --font-color: rgb(70, 70, 70);
+    --light-grey-font: rgb(170, 170, 170);
+    --black-font: rgb(0, 0, 0);
+    --font-family: 'HK Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  
+    /* COLOR SCHEME */
+    --gray-1-lightest: #DCDCDD;
+    --gray-2: #C5C3C6;
+    --gray-darkest: #46494C;
+    --gray-bluetint: #4C5C68;
+    --blue: #1985A1;
+
+  }

@@ -1,0 +1,13 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .contentContainer {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }

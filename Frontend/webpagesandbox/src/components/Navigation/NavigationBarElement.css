@@ -1,0 +1,33 @@
+/*@import '../../styles/variables.css';
+
+.navBar__link {
+  padding: 0px 15px;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-size: 0.9em;
+  line-height: var(--navbar-height);
+  text-align: center;
+  line-height: 35px;
+  background-color: white;
+  border: 0;
+  outline: none;
+  margin: 5px 5px 5px 5px;
+  border-radius: 25px;
+  color: black;
+  padding: 0 20px;
+
+}
+
+.navbar__item--selected {
+  color: black;
+  border-bottom: 4px solid white;
+}
+
+
+.navBar__item {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+*/

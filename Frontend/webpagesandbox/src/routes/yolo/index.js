@@ -12,7 +12,7 @@ class Yolo extends React.Component<Props>{
        return(
            <div>
             <h>YOLO</h>
-            <Link to='/'> Home page/</Link>
+            <Link to='/'> Home page</Link>
            </div>
         )
     }

@@ -17,7 +17,7 @@ class Panel extends React.Component<Props> {
         <div className="panel">
           <img className="panel__image" src={imageUrl} alt=""/>
           <div className="panel__textContainer"> 
-              <h4 style={{"padding-bottom": "5px"}}><b>{title}</b></h4>
+              <h4 style={{"paddingBottom": "5px"}}><b>{title}</b></h4>
               <p>{text}</p>
           </div>
         </div>

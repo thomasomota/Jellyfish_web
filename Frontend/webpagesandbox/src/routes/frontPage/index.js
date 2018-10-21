@@ -10,11 +10,14 @@ type Props =  {
 
 class FrontPage extends React.Component<Props>{
     render(){
-       return(
+
+        const imageUrl = "http://ichef.bbci.co.uk/wwfeatures/wm/live/624_351/images/live/p0/50/fj/p050fjlr.jpg"
+    
+        return(
         <div className="panels__container">
-            <Panel/>
-            <Panel/>
-            <Panel/>
+            <Panel imageUrl={imageUrl} title="Project 1" text="description"/>
+            <Panel imageUrl={imageUrl} title="Project 2" text="description"/>
+            <Panel imageUrl={imageUrl} title="Project 3" text="description"/>
         </div>
         )
     }

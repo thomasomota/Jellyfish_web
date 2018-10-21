@@ -3,17 +3,22 @@ import React from 'react'
 import './Panel.css'
 
 type Props = {
+    imageUrl: string,
+    title: string,
+    text: string
 }
 
 class Panel extends React.Component<Props> {
     render(){
-        const placeHolderImage = "http://ichef.bbci.co.uk/wwfeatures/wm/live/624_351/images/live/p0/50/fj/p050fjlr.jpg"
+
+        const {imageUrl, title, text} = this.props;
+
         return ( 
         <div className="panel">
-          <img className="panel__image" src={placeHolderImage} alt="error"/>
+          <img className="panel__image" src={imageUrl} alt=""/>
           <div className="panel__textContainer"> 
-              <h4 style={{"padding-bottom": "5px"}}><b>Panel Title</b></h4>
-              <p>Panel text</p>
+              <h4 style={{"padding-bottom": "5px"}}><b>{title}</b></h4>
+              <p>{text}</p>
           </div>
         </div>
         )

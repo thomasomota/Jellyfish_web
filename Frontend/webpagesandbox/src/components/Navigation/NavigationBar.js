@@ -15,8 +15,8 @@ class NavigationBar extends React.Component<Props> {
           <NavigationBarItem navLink="/" activeClassName="navBar__item--active" >
             Home
           </NavigationBarItem>
-          <NavigationBarItem navLink="/YOLO" activeClassName="navBar__item--active">
-            Yolo
+          <NavigationBarItem navLink="/jellyfish" activeClassName="navBar__item--active">
+            JellyFish
           </NavigationBarItem>
         </div>
         )

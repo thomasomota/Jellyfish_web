@@ -3,7 +3,7 @@
 import React from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom';
 import FrontPage from './frontPage' 
-import Yolo from './yolo'
+import JellyFishPage from './jellyFish'
 import NavigationBar from '../components/Navigation/NavigationBar';
 import './index.css'
 
@@ -19,7 +19,7 @@ class Routes extends React.Component<Props>{
                 <div className="contentContainer">
                     <Switch>
                         <Route exact path = "/" component = {FrontPage}></Route>
-                        <Route path = "/yolo" component = {Yolo}></Route>
+                        <Route path = "/jellyFish" component = {JellyFishPage}></Route>
                     </Switch>
                 </div>
            </div>

@@ -6,7 +6,7 @@ type Props =  {
     history: Object
 }
 
-class Yolo extends React.Component<Props>{
+class JellyFishPage extends React.Component<Props>{
     render(){
        return(
            <div>
@@ -16,4 +16,4 @@ class Yolo extends React.Component<Props>{
     }
 }
 
-export default Yolo
+export default JellyFishPage

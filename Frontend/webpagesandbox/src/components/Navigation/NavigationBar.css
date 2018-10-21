@@ -1,22 +1,9 @@
 @import '../../styles/variables.css';
 
-nav ul {
+.navigationBar {
   list-style: none;
   display: flex;
   background-color: var(--gray-bluetint);
   margin: 0;
   padding: 0;
-}
-
-nav ul li {
-  padding: 20px;
-}
-
-nav ul li a {
-  color: var(--gray-1-lightest);
-  text-decoration: none;
-}
-
-.current {
-  border-bottom: 2px solid var(--gray-1-lightest);
 }

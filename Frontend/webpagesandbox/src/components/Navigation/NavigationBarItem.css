@@ -1,0 +1,15 @@
+@import '../../styles/variables.css';
+
+.navBar__item {
+  color: black;
+  padding: 20px;
+}
+
+.navBar__item--active {
+  border-bottom: 2px solid var(--gray-1-lightest);
+}
+
+.navBar__link {
+  color: var(--gray-1-lightest);
+  text-decoration: none;
+}

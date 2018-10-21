@@ -1,7 +1,8 @@
 //@flow
 
 import React from 'react'
-import * as Three from 'three'
+import React3 from 'react-three-renderer'
+import * as THREE from 'three'
 import "./jellyFish.css"
 
 type Props =  {
@@ -10,68 +11,61 @@ type Props =  {
 
 class JellyFishPage extends React.Component<Props>{
     
-    componentDidMount() {
-        
-        const width = this.mount.clientWidth
-        const height = this.mount.clientHeight
-
-        this.scene = new Three.Scene ()
-
-        this.camera = new Three.PerspectiveCamera (
-            75,
-            width / height,
-            0.1,
-            1000
-        )
-        
-        this.camera.position.z = 4
-
-        this.renderer = new Three.WebGLRenderer({ antialias: true })
-        this.renderer.setClearColor('#AAAAAA')
-        this.renderer.setSize(width, height)
-        this.mount.appendChild(this.renderer.domElement)
-
-        const geometry = new Three.BoxGeometry(1, 1, 1)
-        const material = new Three.MeshBasicMaterial({ color: '#433F81'     })
-        this.cube = new Three.Mesh(geometry, material)
-        this.scene.add(this.cube)
-
-        this.start()
+    constructor(props){
+        super(props)
+        this.state = {
+            cubeRotation: new THREE.Euler()
+        }
     }
 
-    componentWillUnmount(){
-        this.stop()
-        this.mount.removeChild(this.renderer.domElement)
-      }
-
-    start = () => {
-        if (!this.frameId) {
-          this.frameId = requestAnimationFrame(this.animate)
+    componentDidMount(){
+        this.cameraPosition = new THREE.Vector3(0,0,10)
+        this._onAnimate = () => {
+            this.setState({
+                cubeRotation: new THREE.Euler(
+                this.state.cubeRotation.x + 0.01,
+                this.state.cubeRotation.y + 0.01,
+                0)
+            })
         }
-      }
-
-    stop = () => {
-        cancelAnimationFrame(this.frameId)
-      }
-
-    animate = () => {
-       this.cube.rotation.x += 0.02
-       this.cube.rotation.y += 0.02
-       this.renderScene()
-       this.frameId = window.requestAnimationFrame(this.animate)
-     }
-
-    renderScene = () => {
-      this.renderer.render(this.scene, this.camera)
     }
   
     render(){
-
-       return(
-        <div
-        className="canvas" 
-        ref={(mount) => { this.mount = mount }}
-        />
+        const width = window.innerWidth / 4; // canvas width
+        const height = window.innerHeight / 4; // canvas height
+        const type = this.props.type;
+    
+    return (
+      <React3
+        mainCamera="camera"
+        width={width}
+        height={height}
+        clearColor={0x0c2340}
+        alpha={true}
+        clearAlpha={0}
+        onAnimate={this._onAnimate}
+      >
+        <scene>
+          <perspectiveCamera
+            name="camera"
+            fov={75}
+            aspect={width / height}
+            near={0.1}
+            far={1000}
+            position={this.cameraPosition}
+          />
+          <mesh rotation={this.state.cubeRotation}>
+            <boxGeometry width={3} height={3} depth={3} />
+            <meshLambertMaterial color={0xF3FFE2} />
+          </mesh>
+          <ambientLight intensity={.6} />
+          <pointLight 
+            color={0xFFFFFF}
+            distance={10000} 
+            position={new THREE.Vector3(3, 3, 3)} 
+          />
+        </scene>
+      </React3>
         )
     }
 }

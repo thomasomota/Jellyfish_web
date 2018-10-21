@@ -1,0 +1,6 @@
+@import '../../styles/variables.css';
+
+.panels__container {
+    display: flex;
+    flex-direction: row;
+}

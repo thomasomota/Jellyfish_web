@@ -1,6 +1,8 @@
 //@flow
 
 import React from 'react'
+import Panel from '../../components/Panel/Panel'
+import './frontPage.css'
 
 type Props =  {
     history: Object
@@ -9,14 +11,14 @@ type Props =  {
 class FrontPage extends React.Component<Props>{
     render(){
        return(
-           <div>
-            <h>Hello world frontpage yey</h>
-            <p>
-                There is a lot of things bla bla 
-            </p>
-            </div>
+        <div className="panels__container">
+            <Panel/>
+            <Panel/>
+            <Panel/>
+        </div>
         )
     }
 }
 
 export default FrontPage
+

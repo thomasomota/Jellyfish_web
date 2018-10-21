@@ -1,5 +1,6 @@
 import React from 'react';
 import Routes from './routes/index'
+import './styles/globals.css'
 
 type Props = {}
 

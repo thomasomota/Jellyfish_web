@@ -1,7 +1,6 @@
 //@flow
 import React from 'react'
 import './NavigationBar.css'
-import { NavLink } from 'react-router-dom';
 import NavigationBarItem from './NavigationBarItem';
 
 type Props = {

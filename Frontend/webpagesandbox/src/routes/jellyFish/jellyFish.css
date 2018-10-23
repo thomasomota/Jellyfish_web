@@ -1,4 +1,6 @@
-.canvas{
-    width: 200px;
-    height: 200px;
+.jellyfish__canvas{
+    width: 500px;
+    height: 400px;
+    max-width: 500px;
+    max-height: 400px;
 }

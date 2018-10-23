@@ -55,7 +55,7 @@ export default canvas => {
     function createSceneSubjects(scene) {
         const sceneSubjects = [
             new GeneralLights(scene),
-            new SceneSubject(scene)
+            new SceneSubject(scene, screenDimensions)
         ];
 
         return sceneSubjects;

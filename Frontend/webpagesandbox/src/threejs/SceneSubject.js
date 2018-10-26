@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 
-export default (scene, screenDimensions) => {    
-    const jellyfish = new THREE.Object3D();
+export default (scene, screenDimensions) => {  
+
+    const jellyfish = new THREE.Group();
 
     const body = new THREE.Mesh( new THREE.CubeGeometry( 20, 20, 20 ), new THREE.MeshLambertMaterial() );
 
@@ -31,57 +32,56 @@ export default (scene, screenDimensions) => {
 
 
     jellyfish.rotation.z = Math.PI/4;
-    const speed = 0.3;
+    const speed = 0;
 
     console.log(screenDimensions)
 
-    const screen_width = screenDimensions.screen_width;
-    const screen_height = screenDimensions.screen_height;
+    const screen_width = screenDimensions.width;
+    const screen_height = screenDimensions.height;
+    const screen_depth = screenDimensions.depth;
 
-    var jellyfish_direction_x = 0.1;
-    var jellyfish_direction_y = 0.1;
-    var jellyfish_direction_z = 0.1;
+    var jellyfish_direction_x = 1.5;
+    var jellyfish_direction_y = 2;
 
-    var jellyfish_velocity = Math.random() * 50;
+    var jellyfish_velocity = 0.1;
+
+    console.log("width: ", screen_width)
+    console.log("scene: ", scene)
 
     function update(time) {
 
-        //console.log("old x: ", jellyfish.position.x )
-        //console.log("old y: ", jellyfish.position.y )
+        const x_pos = jellyfish.position.x;
+        const y_pos = jellyfish.position.y;
 
-        //const x_pos = jellyfish.position.x;
-        //const y_pos = jellyfish.position.y;
-        //const z_pos = jellyfish.position.z;
+        console.log("xpos: ", x_pos)
+        console.log("width: ", screen_width/7)
+        console.log("x-dir: ", jellyfish_direction_x)
 
-        /*if(x_pos > screen_width / 2 || x_pos < - screen_width / 2){
-            jellyfish_direction = new THREE.Vector3(
-                -jellyfish_direction.getComponent(0), 
-                jellyfish_direction.getComponent(1), 
-                jellyfish_direction.getComponent(2)
-            );
+        if(x_pos > screen_width/7 ){
+            jellyfish_direction_x = -Math.abs(jellyfish_direction_x)
         }
-        if(y_pos > screen_height / 2 || y_pos < - screen_height / 2){
-            jellyfish_direction = new THREE.Vector3(
-                jellyfish_direction.getComponent(0), 
-                -jellyfish_direction.getComponent(1), 
-                jellyfish_direction.getComponent(2)
-            );
-        }*/
+        if(x_pos < - screen_width/7){
+            jellyfish_direction_x = Math.abs(jellyfish_direction_x)
+        }
 
+        if(y_pos > screen_height/10 || y_pos < - screen_height/10 ){
+            jellyfish_direction_y = -jellyfish_direction_y
+        }
+
+        // ROTATION
         const angle = time*speed;
         jellyfish.rotation.y = angle;
         jellyfish.rotation.x = angle;
         jellyfish.rotation.z = angle;
 
-        //console.log(jellyfish)
-
-        jellyfish.position.x = jellyfish_direction_x * jellyfish_velocity;
-        jellyfish.position.y = jellyfish_direction_y * jellyfish_velocity;
-        jellyfish.position.z = jellyfish_direction_z * jellyfish_velocity;
-    
-        //console.log("new x: ", jellyfish.position.x )
-        //console.log("new y: ", jellyfish.position.y )
-
+        // MOVEMENT 
+        jellyfish.translateOnAxis(
+            new THREE.Vector3(
+                jellyfish_direction_x,
+                jellyfish_direction_y,
+                0
+                ), 
+            jellyfish_velocity )
     }
 
     return {

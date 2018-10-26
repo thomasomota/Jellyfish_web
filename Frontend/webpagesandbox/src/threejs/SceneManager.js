@@ -9,7 +9,8 @@ export default canvas => {
 
     const screenDimensions = {
         width: canvas.width,
-        height: canvas.height
+        height: canvas.height,
+        depth: 100
     }
 
     const mousePosition = {
